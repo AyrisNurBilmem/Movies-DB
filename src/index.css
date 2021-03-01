@@ -1,0 +1,171 @@
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body{
+  font-family: "montserrat", sans-serif;
+  background-color: #223343;
+}
+
+header{
+  padding: 50px 15px 0px;
+}
+header h1{
+  color: white;
+  font-family: 'Indie Flower', cursive;
+  font-size: 4rem;
+  font-weight: 900;
+  text-align: center;
+  letter-spacing: 3px;
+ 
+}
+
+main{
+  width: 100%;
+  max-width: 960px;
+  margin: 0 auto;
+}
+
+section{
+  padding: 15px;
+}
+
+.searchBox{
+  display:block;
+  width: 50%;
+  padding: 13px;
+
+  margin-right: auto;
+  margin-left: auto;
+
+  border: none;
+  outline: none;
+
+  background-color: #eeeeee;
+  border-radius: 40px;
+
+  color: #53565a;
+  
+  font-weight: 500;
+  font-size: 13px;
+  transition: 0.5s;
+
+
+}
+
+.searchBox:hover{
+  padding: 15px;
+  font-size: 14px;
+  transition: 0.5s ;
+  font-weight: 500;
+  box-shadow: 0px 0px 10px 0px #11698e;
+}
+
+.results{
+  display: flex;  /*yanyana oldu hepsi*/
+ flex-wrap: wrap;  /*2 veya daha fazla kutucuk aynı satıra gelir*/
+ margin: 0px  -15px;
+}
+
+.results .result{
+  width: 33.333%;
+  min-width: 300px;
+  display: flex;
+  padding: 20px;
+  flex-direction: column;
+  cursor: pointer;  /*gösteren inleç olur*/
+}
+
+.results .result img{
+  display: block;
+  width: 100%;
+}
+
+.results .result h3{
+  color: #fff;
+  font-size: 20px;
+  font-weight: 600;
+  padding: 15px;
+  background: #445565;
+  flex: 1 1  100%;
+  transition: 0.5s ease-out;
+}
+
+.results .result:hover h3{
+  background: #fff;
+  color: #223343;
+}
+
+.popup {
+	position: fixed;
+	top: 0;
+	left: 0;
+	width: 100vw;
+	height: 100vh;
+	background-color: #445565;
+
+	overflow-y: scroll;
+}
+
+.popup .content {
+	display: block;
+	width: 100%;
+	max-width: 960px;
+	margin: 0 auto;
+	padding: 25px;
+
+	color: #FFF;
+}
+
+.popup .content h2 {
+	font-size: 28px;
+	font-weight: 600;
+}
+.popup .content h2 span {
+	font-weight: 300;
+	font-size: 20px;
+}
+
+.popup .content .rating {
+	margin-bottom: 30px;
+}
+
+.popup .content .plot {
+	display: flex;
+	flex-wrap: wrap;
+	margin: 0px -15px 30px;
+}
+
+.popup .content .plot img {
+	flex: 1 1 50%;
+	max-width: 300px;
+	padding: 0px 15px;
+}
+
+.popup .content .plot p {
+	flex: 1 1 50%;
+	padding: 15px;
+}
+
+.popup .content .close {
+	display: inline-block;
+	padding: 15px 30px;
+	font-size: 18px;
+	font-weight: 700;
+
+	background: #4484C4;
+	color: #FFF;
+	border-radius: 8px;
+	border: none;
+	outline: none;
+	appearance: none;
+	cursor: pointer;
+
+	transition: 0.4s ease-out;
+}
+
+.popup .content .close:hover {
+	background: #223343;
+}
