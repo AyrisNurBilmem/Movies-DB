@@ -4,10 +4,11 @@ import axios from "axios";   //to search movies
 import Results from "./components/Results";
 import Popup from "./components/Popup";
 
+
 function App() {
 
   const [searchText, setSearchText] = useState({
-    searchQuery: "",
+    s: "",
     results: [],
     selected :{}
   });
@@ -18,7 +19,7 @@ function handleInput(event){  //for the input text
   let s= event.target.value;
 
   setSearchText(prevValue => {
-    return {...prevValue, s}
+    return {...prevValue, s:s }
   });
 
 }
@@ -26,13 +27,17 @@ function handleInput(event){  //for the input text
 function searchMovie(event){
   
   if (event.key === "Enter"){
-    
     axios(apiKey +"&s=" + searchText.s).then(({data}) =>{
       let results = data.Search;
 
-      setSearchText(prevState =>{
-        return { ...prevState, results: results}
-      })
+      if(results){
+        setSearchText(prevState =>{
+          return { ...prevState, results: results}
+        })
+      }
+      else{
+       alert("Nothing Found!");
+      }  
     });
 
   }
@@ -63,7 +68,7 @@ function closePopUp(){
       <Search  handleInput = {handleInput} searchMovie = {searchMovie}/>
       <Results results = {searchText.results} openPopUp = {openPopUp}/>
 
-      {(typeof searchText.selected.Title != "undefined") ? <Popup selected={searchText.selected} closePopUp ={closePopUp} /> : false}
+      {(typeof searchText.selected.Title != "undefined") ? <Popup selected={searchText.selected} closePopUp ={closePopUp} /> : null}
       </main>
     </div>
   );
