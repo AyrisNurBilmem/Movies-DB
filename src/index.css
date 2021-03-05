@@ -169,3 +169,15 @@ section{
 .popup .content .close:hover {
 	background: #223343;
 }
+
+.nothingFound{
+  text-align: center;
+} 
+
+.nothingFound h3{
+  padding-top: 10px;
+  color: white;
+  font-family: 'Montserrat', sans-serif;
+
+  transition: 0.2s;
+}

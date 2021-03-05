@@ -3,6 +3,7 @@ import Search from "./components/Search";
 import axios from "axios";   //to search movies
 import Results from "./components/Results";
 import Popup from "./components/Popup";
+import NothingFound from "./components/NothingFound";
 
 
 function App() {
@@ -34,10 +35,15 @@ function searchMovie(event){
         setSearchText(prevState =>{
           return { ...prevState, results: results}
         })
-      }
+      } 
       else{
-       alert("Nothing Found!");
-      }  
+        setSearchText({
+          s:false,
+          results : [],
+          selected:{}
+        });
+        
+      }
     });
 
   }
@@ -65,7 +71,8 @@ function closePopUp(){
         <h1>Movie Database</h1>
       </header>
       <main>
-      <Search  handleInput = {handleInput} searchMovie = {searchMovie}/>
+      <Search  handleInput = {handleInput} searchMovie = {searchMovie} />
+      {(searchText.s === false && <NothingFound />)}
       <Results results = {searchText.results} openPopUp = {openPopUp}/>
 
       {(typeof searchText.selected.Title != "undefined") ? <Popup selected={searchText.selected} closePopUp ={closePopUp} /> : null}
